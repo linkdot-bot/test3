@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Rod Official Memorabilia | Signed Baseballs, Photos & More</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary: #0C2340; /* Yankees navy blue */
+            --secondary: #C60C30; /* Yankees red */
+            --accent: #FFD700; /* Gold */
+            --light: #FFFFFF;
+            --dark: #222222;
+            --gray: #F5F5F5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: var(--gray);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--primary);
+            color: var(--light);
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--light);
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: var(--light);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            background-color: var(--accent);
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        /* Products Section */
+        .products {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background-color: var(--light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .product-img {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .product-card:hover .product-img img {
+            transform: scale(1.1);
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .product-info p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+        
+        /* Order Form Section */
+        .order-form-section {
+            padding: 80px 0;
+            background-color: var(--gray);
+        }
+        
+        .order-form-container {
+            background-color: var(--light);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .order-form h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+        
+        .payment-options {
+            margin: 30px 0;
+        }
+        
+        .payment-options h4 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .payment-method {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .payment-method i {
+            margin-right: 8px;
+            width: 20px;
+            color: var(--secondary);
+        }
+        
+        .payment-method input {
+            margin-right: 10px;
+        }
+        
+        .crypto-options {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            background-color: var(--gray);
+            border-radius: 5px;
+        }
+        
+        .crypto-options.active {
+            display: block;
+        }
+        
+        .crypto-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .crypto-option i {
+            margin-right: 8px;
+            width: 20px;
+        }
+        
+        .crypto-option i.fa-dollar-sign {
+            color: #26A17B; /* USDT brand color */
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: var(--light);
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: var(--light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--accent);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: var(--light);
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: var(--light);
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            padding: 30px;
+            position: relative;
+            animation: modalFadeIn 0.3s;
+        }
+        
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .order-form-container {
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                height: 70vh;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="https://iili.io/3r85l07.jpg" alt="A-Rod Logo">
+                <span>A-Rod Official Store</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#order">Order Now</a></li>
+                    <li><a href="#authentication">Authentication</a></li>
+                    <li><a href="#about">About A-Rod</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>Official Alex Rodriguez Memorabilia</h1>
+            <p>Own a piece of baseball history with authentic signed collectibles from the legendary 14-time All-Star and 3-time MVP.</p>
+            <a href="#products" class="btn">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Collectibles</h2>
+            </div>
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://iili.io/3r8Pe72.md.jpg" alt="Signed Baseball">
+                    </div>
+                    <div class="product-info">
+                        <h3>Personalized Signed Baseball</h3>
+                        <p>Official MLB baseball hand-signed by Alex Rodriguez with your personal dedication.</p>
+                        <div class="product-price">$299.99</div>
+                        <button class="btn order-btn" data-product="Personalized Signed Baseball">Order Now</button>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://iili.io/3r8EFMG.md.jpg" alt="Autographed Photo">
+                    </div>
+                    <div class="product-info">
+                        <h3>Autographed 8x10 Photo</h3>
+                        <p>Choose from iconic moments in A-Rod's career, hand-signed with COA.</p>
+                        <div class="product-price">$199.99</div>
+                        <button class="btn order-btn" data-product="Autographed 8x10 Photo">Order Now</button>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://iili.io/3r86FFR.md.jpg" alt="Signed Jersey">
+                    </div>
+                    <div class="product-info">
+                        <h3>Signed Game-Used Jersey</h3>
+                        <p>Authentic game-used jersey hand-signed by A-Rod with full provenance.</p>
+                        <div class="product-price">$999.99</div>
+                        <button class="btn order-btn" data-product="Signed Game-Used Jersey">Order Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Form Section -->
+    <section class="order-form-section" id="order">
+        <div class="container">
+            <div class="order-form-container">
+                <form id="orderForm" class="order-form" action="https://formsubmit.co/storearod@gmail.com" method="POST">
+                    <!-- FormSubmit Configuration -->
+                    <input type="hidden" name="_subject" value="New A-Rod Memorabilia Order">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="#orderModal" id="successRedirect">
+                    <input type="hidden" name="_autoresponse" value="Thank you for your order! We'll contact you shortly with payment details.">
+                    
+                    <h3>Place Your Order</h3>
+                    
+                    <div class="form-group">
+                        <label for="product">Select Product</label>
+                        <select id="product" name="product" class="form-control" required>
+                            <option value="">-- Select a Product --</option>
+                            <option value="Personalized Signed Baseball">Personalized Signed Baseball - $299.99</option>
+                            <option value="Autographed 8x10 Photo">Autographed 8x10 Photo - $199.99</option>
+                            <option value="Signed Game-Used Jersey">Signed Game-Used Jersey - $999.99</option>
+                            <option value="Signed Bat">Signed Bat - $499.99</option>
+                            <option value="Signed Rookie Card">Signed Rookie Card - $399.99</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="personalization">Personalization (if applicable)</label>
+                        <input type="text" id="personalization" name="personalization" class="form-control" placeholder="e.g., 'To John, Best Wishes'">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="_replyto" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="whatsapp">WhatsApp Number</label>
+                        <input type="tel" id="whatsapp" name="whatsapp" class="form-control" required placeholder="Include country code">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address">Shipping Address</label>
+                        <textarea id="address" name="address" class="form-control" rows="3" required></textarea>
+                    </div>
+                    
+                    <div class="payment-options">
+                        <h4>Payment Method</h4>
+                        
+                        <div class="payment-method">
+                            <input type="radio" id="pay-crypto" name="payment" value="crypto" checked>
+                            <label for="pay-crypto"><i class="fas fa-coins"></i> Pay with Cryptocurrency</label>
+                        </div>
+                        
+                        <div class="crypto-options active">
+                            <p>Select your preferred cryptocurrency:</p>
+                            <div class="crypto-option">
+                                <input type="radio" id="bitcoin" name="crypto" value="bitcoin" checked>
+                                <label for="bitcoin"><i class="fab fa-bitcoin"></i> Bitcoin (BTC)</label>
+                            </div>
+                            <div class="crypto-option">
+                                <input type="radio" id="ethereum" name="crypto" value="ethereum">
+                                <label for="ethereum"><i class="fab fa-ethereum"></i> Ethereum (ETH)</label>
+                            </div>
+                            <div class="crypto-option">
+                                <input type="radio" id="usdt" name="crypto" value="usdt">
+                                <label for="usdt"><i class="fas fa-dollar-sign"></i> Tether (USDT)</label>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-method">
+                            <input type="radio" id="pay-whatsapp" name="payment" value="whatsapp">
+                            <label for="pay-whatsapp"><i class="fab fa-whatsapp"></i> Receive Payment Instructions via WhatsApp</label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn" style="width: 100%;" id="submitBtn">Complete Order</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Authentication Section -->
+    <section class="authentication" id="authentication">
+        <div class="container">
+            <div class="section-title">
+                <h2>100% Authentic</h2>
+            </div>
+            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <p>Every item comes with a Certificate of Authenticity (COA) from JSA (James Spence Authentication) or PSA/DNA, the most trusted names in sports memorabilia authentication.</p>
+                <img src="https://iili.io/3rYz9Lv.png" alt="PSA DNA Logo" style="height: 80px; margin: 20px;">
+                <img src="https://iili.io/3rkSgzx.png" alt="JSA Logo" style="height: 80px; margin: 20px;">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about" style="padding: 80px 0; background-color: var(--light);">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Alex Rodriguez</h2>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 30px; align-items: center;">
+                <div style="flex: 1; min-width: 300px;">
+                    <img src="https://iili.io/3r805zu.md.jpg" alt="Alex Rodriguez" style="width: 100%; border-radius: 10px;">
+                </div>
+                <div style="flex: 1; min-width: 300px;">
+                    <h3 style="color: var(--primary); margin-bottom: 20px;">Baseball Legend</h3>
+                    <p style="margin-bottom: 15px;">Alexander Emmanuel Rodriguez (born July 27, 1975), nicknamed "A-Rod", is an American former professional baseball shortstop and third baseman, businessman, and philanthropist.</p>
+                    <p style="margin-bottom: 15px;">A-Rod played 22 seasons in Major League Baseball (MLB) for the Seattle Mariners, Texas Rangers, and New York Yankees.</p>
+                    <p style="margin-bottom: 15px;">He is a 14-time All-Star, 3-time AL MVP, and won the 2009 World Series with the Yankees. He ranks fourth all-time in home runs (696) and RBIs (2,086).</p>
+                    <p>After retiring, Rodriguez became a successful businessman and baseball analyst for ESPN and Fox Sports.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="#products">All Products</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Limited Editions</a></li>
+                        <li><a href="#">Gift Certificates</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Help</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="#about">Alex Rodriguez</a></li>
+                        <li><a href="#authentication">Authentication</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/arod/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/arod?lang=nl"><i class="fab fa-twitter"></i></a>
+                        <a href="https://web.facebook.com/AROD/?_rdc=1&_rdr#"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.youtube.com/c/arod"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <p style="margin-top: 20px;">Sign up for exclusive offers</p>
+                    <form style="margin-top: 10px;">
+                        <input type="email" placeholder="Your email" class="form-control" style="margin-bottom: 10px;">
+                        <button type="submit" class="btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 A-Rod Official Store. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Order Confirmation Modal -->
+    <div class="modal" id="orderModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3 style="color: var(--primary); margin-bottom: 20px; text-align: center;">Thank You For Your Order!</h3>
+            <p style="margin-bottom: 15px; text-align: center;">Your order has been received and we'll contact you shortly with payment instructions.</p>
+            <p style="margin-bottom: 20px; text-align: center; font-weight: 600;" id="orderSummary"></p>
+            <div style="text-align: center;">
+                <button class="btn" id="closeModalBtn">Continue Shopping</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav ul');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        });
+        
+        // Update nav display on resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                nav.style.display = 'flex';
+            } else {
+                nav.style.display = 'none';
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Payment method toggle
+        const payCrypto = document.getElementById('pay-crypto');
+        const payWhatsApp = document.getElementById('pay-whatsapp');
+        const cryptoOptions = document.querySelector('.crypto-options');
+        
+        payCrypto.addEventListener('change', () => {
+            cryptoOptions.classList.add('active');
+        });
+        
+        payWhatsApp.addEventListener('change', () => {
+            cryptoOptions.classList.remove('active');
+        });
+        
+        // Product order buttons
+        const orderButtons = document.querySelectorAll('.order-btn');
+        const productSelect = document.getElementById('product');
+        
+        orderButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const productName = button.getAttribute('data-product');
+                productSelect.value = productName;
+                
+                document.getElementById('order').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Form submission
+        const orderForm = document.getElementById('orderForm');
+        const orderModal = document.getElementById('orderModal');
+        const orderSummary = document.getElementById('orderSummary');
+        const closeModal = document.querySelector('.close-modal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const submitBtn = document.getElementById('submitBtn');
+
+        orderForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const formData = new FormData(orderForm);
+            const product = formData.get('product');
+            const name = formData.get('name');
+            const paymentMethod = formData.get('payment');
+            
+            // Create order summary
+            let summary = `${name}, your order for "${product}" has been received. `;
+            
+            if (paymentMethod === 'crypto') {
+                const crypto = formData.get('crypto');
+                summary += `Please check your email for ${crypto.toUpperCase()} payment instructions.`;
+            } else {
+                summary += `We'll contact you shortly on WhatsApp with payment details.`;
+            }
+            
+            orderSummary.textContent = summary;
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+            
+            try {
+                // Submit to FormSubmit
+                const response = await fetch(orderForm.action, {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: new URLSearchParams(formData),
+                });
+                
+                if (response.ok) {
+                    // Show success modal
+                    orderModal.style.display = 'flex';
+                    
+                    // Reset form
+                    orderForm.reset();
+                } else {
+                    const errorData = await response.json();
+                    throw new Error(errorData.message || 'Form submission failed');
+                }
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                alert(`Error: ${error.message}. Please try again or contact us directly at storearod@gmail.com`);
+            } finally {
+                // Reset button state
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Complete Order';
+            }
+        });
+        
+        // Close modal
+        closeModal.addEventListener('click', () => {
+            orderModal.style.display = 'none';
+        });
+        
+        closeModalBtn.addEventListener('click', () => {
+            orderModal.style.display = 'none';
+        });
+        
+        window.addEventListener('click', (e) => {
+            if (e.target === orderModal) {
+                orderModal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
